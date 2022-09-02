@@ -1,6 +1,50 @@
 html {
     border: 0;
     padding: 0;
-    scroll-behavior: smooth;
 }
 
+body {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.characterContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.character {
+    display: flex; 
+    flex-direction: column;
+}
+
+.charIcon {
+    width: 8rem;
+    height: 10rem;
+    border-radius: 15px;
+    border: 1px solid rgb(10, 10, 0);
+}
+
+@media(max-width: 768px) {
+
+    .characterContainer {
+        flex-wrap: wrap;
+    }
+
+    .character {
+        width: 100%;
+        justify-content: end;
+    }
+
+}
