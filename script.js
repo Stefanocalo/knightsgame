@@ -158,8 +158,25 @@ const TigerKnight = new Knight('Tiger Knight',100, 130, 150)
 
 // Assing Player1 character 
 
+const sword = document.querySelector('#swordKnight');
+const archer = document.querySelector('#archer');
+const axe = document.querySelector('#axeKnight');
+const horse = document.querySelector('#knight');
+const pike = document.querySelector('#pikeKnight');
+const tiger = document.querySelector('#tigerKnight');
 
 
+function test(character) {
+    character.classList.toggle('active');
+}
+
+
+sword.onclick = function() {test(sword)};
+archer.onclick = function() {test(archer)};
+axe.onclick = function() {test(axe)};
+horse.onclick = function() {test(horse)};
+pike.onclick = function() {test(pike)};
+tiger.onclick = function() {test(tiger)};
 
 let player1
 let CPU

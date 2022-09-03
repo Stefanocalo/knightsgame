@@ -47,6 +47,19 @@ header {
     box-shadow: 0 10px 10px rgb(130, 131, 130);
 }
 
+
+
+
+#swordKnight.active {
+    padding: 3rem 2rem;
+    background-color: green;
+}
+
+#archer.active {
+    padding: 3rem 2rem;
+    background-color: green;
+}
+
 @media(max-width: 768px) {
 
     .characterContainer {
