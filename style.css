@@ -27,6 +27,8 @@ header {
 .character {
     display: flex; 
     flex-direction: column;
+    margin: 2rem 0;
+
 }
 
 .charIcon {
@@ -34,6 +36,15 @@ header {
     height: 10rem;
     border-radius: 15px;
     border: 1px solid rgb(10, 10, 0);
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 1rem 0;
+}
+
+.charIcon:hover {
+    width: 9rem;
+    height: 12rem;
+    box-shadow: 0 10px 10px rgb(130, 131, 130);
 }
 
 @media(max-width: 768px) {
@@ -44,7 +55,10 @@ header {
 
     .character {
         width: 100%;
-        justify-content: end;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
+
 
 }
