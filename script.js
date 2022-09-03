@@ -158,14 +158,7 @@ const TigerKnight = new Knight('Tiger Knight',100, 130, 150)
 
 // Assing Player1 character 
 
-let sword = document.querySelector('.character')
 
-
-let test = function () {
-    var img = new Image();
-        img.src="./character/sword_knight.png"
-        document.getElementByc('player1').appendChild(img);
-}
 
 
 let player1
