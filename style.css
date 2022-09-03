@@ -48,9 +48,29 @@ header {
 }
 
 
-
+/* Player Selection */
 
 #swordKnight.active {
+    padding: 3rem 2rem;
+    background-color: green;
+}
+
+#axeKnight.active {
+    padding: 3rem 2rem;
+    background-color: green;
+}
+
+#Knight.active {
+    padding: 3rem 2rem;
+    background-color: green;
+}
+
+#pikeKnight.active {
+    padding: 3rem 2rem;
+    background-color: green;
+}
+
+#tigerKnight.active {
     padding: 3rem 2rem;
     background-color: green;
 }

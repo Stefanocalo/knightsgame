@@ -156,7 +156,7 @@ const PikeKnight = new Knight('Pike Knight',100, 180, 180)
 const TigerKnight = new Knight('Tiger Knight',100, 130, 150)
 
 
-// Assing Player1 character 
+// Assing Player1 character
 
 const sword = document.querySelector('#swordKnight');
 const archer = document.querySelector('#archer');
@@ -168,7 +168,10 @@ const tiger = document.querySelector('#tigerKnight');
 
 function test(character) {
     character.classList.toggle('active');
+    player1 = character;
 }
+
+
 
 
 sword.onclick = function() {test(sword)};
