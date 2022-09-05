@@ -174,7 +174,7 @@ header {
 /* Log container */
 
 #nextRound {
-    background-color: rgb(130, 131, 130);
+    background-color: rgb(147, 226, 147);
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -182,6 +182,12 @@ header {
     width: 10rem;
     height: 2.2rem;
     cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid rgb(130, 131, 130)
+}
+
+#nextRound:hover {
+    background-color: rgb(74, 133, 74);
 }
 
 #battleLogContainer {
@@ -213,7 +219,7 @@ header {
 }
 
 #startBattle {
-    background-color: rgb(130, 131, 130);
+    background-color: rgb(147, 226, 147);
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -221,6 +227,12 @@ header {
     width: 10rem;
     height: 2.2rem;
     cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid rgb(130, 131, 130)
+}
+
+#startBattle:hover {
+    background-color: rgb(74, 133, 74);
 }
 
 
