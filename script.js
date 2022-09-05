@@ -72,22 +72,27 @@ class Knight {
     }
 }
 
+// Declare players variable
+
+let Player1
+let CPU
+
 /*
 
 // Quick battle function
 
 const battle = function () {
     do {
-        CPU.updateArmor(player1.attack());
+        CPU.updateArmor(Player1.attack());
         //console.log(CPU.HP);
-        //console.log(player1.attack());
+        //console.log(Player1.attack());
 
-        player1.updateArmor(CPU.attack());
-        //console.log(player1.HP);
+        Player1.updateArmor(CPU.attack());
+        //console.log(Player1.HP);
         //console.log(CPU.attack());
 
-    } while (CPU._HP != 0 && player1._HP != 0);
-    if (player1._HP === 0) {
+    } while (CPU._HP != 0 && Player1._HP != 0);
+    if (Player1._HP === 0) {
         console.log(lossPhrases[Math.floor(Math.random() * lossPhrases.length)]);
         console.log('You have lost');
     } else if (CPU._HP === 0) {
@@ -101,11 +106,13 @@ const battle = function () {
 // Round function 
 
 const round = function() {
+    let p1Attack = Math.floor(Math.random() * Player1._maxAttack);
+    let CPUAttack = Math.floor(Math.random() * CPU._maxAttack);
 
-    CPU.updateArmor(player1.attack());
+    CPU.updateArmor(p1Attack);
     if (CPU._HP != 0) {
-        player1.updateArmor(CPU.attack());
-    } if (player1._HP === 0) {
+        Player1.updateArmor(CPUAttack);
+    } if (Player1._HP === 0) {
         console.log(lossPhrases[Math.floor(Math.random() * lossPhrases.length)]);
         console.log('You have lost');
     } else if (CPU._HP === 0) {
@@ -138,7 +145,7 @@ const casualAssignCPU = function() {
             CPU = TigerKnight;
         break;    
     }
-    console.log(CPU);
+    //console.log(CPU);
 }
 
 // charachters 
@@ -168,11 +175,9 @@ const tiger = document.querySelector('#tigerKnight');
 
 function test(character) {
     character.classList.toggle('active');
-    player1 = character;
+    this.Player1 = character;
+    return this.Player1;
 }
-
-
-
 
 sword.onclick = function() {test(sword)};
 archer.onclick = function() {test(archer)};
@@ -181,5 +186,42 @@ horse.onclick = function() {test(horse)};
 pike.onclick = function() {test(pike)};
 tiger.onclick = function() {test(tiger)};
 
-let player1
-let CPU
+// Start Battle - Assign character
+
+const startBattle = document.getElementById('startBattle');
+
+function start() {
+    Player1 = sword;
+    casualAssignCPU();
+    round()
+}
+
+/*
+
+function start() {
+    function retrieveImg() {
+        let img = document.createElement('img');
+        Player1Img.className = 'charIcon';
+        let Player1Profile = document.getElementById('Player1');
+        switch(Player1){
+            case sword:
+                img.src = "./character/sword_knight.png";
+            break;
+            case archer:
+                this.img.src = "./character/archer.png";  
+            break;
+            case AxeKnight:
+                this.img.src = "./character/axe_knight.png";
+            break;
+        }
+    }
+    img.src = retrieveImg();
+    Player1Profile.appendChild('img');
+}
+
+*/
+
+startBattle.onclick = function() {start()};
+
+
+

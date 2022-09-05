@@ -17,6 +17,8 @@ header {
     align-items: center;
 }
 
+/* Character container */
+
 .characterContainer {
     display: flex;
     justify-content: space-around;
@@ -60,7 +62,7 @@ header {
     background-color: green;
 }
 
-#Knight.active {
+#knight.active {
     padding: 3rem 2rem;
     background-color: green;
 }
@@ -79,6 +81,111 @@ header {
     padding: 3rem 2rem;
     background-color: green;
 }
+
+/* Battle Container */
+
+#battleContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.statsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+}
+
+#p1HealthContainer {
+    width: 100%;
+    height: 2rem;
+    background-color: rgb(62, 187, 89);
+    margin: 1rem 0;
+    border-radius: 8px;
+}
+
+#p1ArmorContainer {
+    width: 100%;
+    height: 2rem;
+    background-color: rgb(194, 36, 36);
+    border-radius: 8px;
+}
+
+#CPUHealthContainer {
+    width: 100%;
+    height: 2rem;
+    background-color: rgb(62, 187, 89);
+    margin: 1rem 0;
+    border-radius: 8px;
+}
+
+#CPUArmorContainer {
+    width: 100%;
+    height: 2rem;
+    background-color: rgb(194, 36, 36);
+    border-radius: 8px;
+}
+
+/* Log container */
+
+#nextRound {
+    background-color: rgb(130, 131, 130);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 2.2rem;
+    cursor: pointer;
+}
+
+#battleLogContainer {
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+#battleLog {
+    width: 90%;
+    height: 20rem;
+    background-color: rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+
+
+/* Battle Button */
+
+.buttonContainer {
+    width: 100%;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#startBattle {
+    background-color: rgb(130, 131, 130);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 2.2rem;
+    cursor: pointer;
+}
+
 
 @media(max-width: 768px) {
 
