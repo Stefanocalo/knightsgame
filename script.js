@@ -121,32 +121,6 @@ const round = function() {
     }
 }
 
-// Assign opponent
-
-const casualAssignCPU = function() {
-    let cas = Math.floor(Math.random() * 6);
-    switch(cas){
-        case 0:
-            CPU = SwordKnight;
-        break;
-        case 1:
-            CPU = Archer;
-        break;
-        case 2:
-            CPU = AxeKnight;
-        break;
-        case 3:
-            CPU = HorseKnight;
-        break;
-        case 4:
-            CPU = PikeKnight;
-        break;
-        case 5:
-            CPU = TigerKnight;
-        break;    
-    }
-    //console.log(CPU);
-}
 
 // charachters 
 
@@ -234,6 +208,55 @@ horse.onclick = function() {characterSelection(horse)};
 pike.onclick = function() {characterSelection(pike)};
 tiger.onclick = function() {characterSelection(tiger)};
 
+
+// Casually assign opponent
+
+
+const casualAssignCPU = function() {
+
+    const CPUName = document.getElementById('CPUName');
+    const imgCPU = document.createElement('img');
+    imgCPU.className = 'charIcon';
+    document.getElementById('CPU').appendChild(imgCPU);
+
+    let cas = Math.floor(Math.random() * 6);
+    switch(cas){
+        case 0:
+            CPU = SwordKnight;
+            imgCPU.src = './character/sword_knight.png';
+            CPUName.innerHTML = 'Sword Knight';
+        break;
+        case 1:
+            CPU = Archer;
+            imgCPU.src = './character/archer.png';
+            CPUName.innerHTML = 'Medieval Archer';
+        break;
+        case 2:
+            CPU = AxeKnight;
+            imgCPU.src = './character/axe_knight.png';
+            CPUName.innerHTML = 'Axe Knight';
+        break;
+        case 3:
+            CPU = HorseKnight;
+            imgCPU.src = './character/knight.png';
+            CPUName.innerHTML = 'Horse Knight';
+        break;
+        case 4:
+            CPU = PikeKnight;
+            imgCPU.src = './character/pike_knight.png';
+            CPUName.innerHTML = 'Pike Knight';
+        break;
+        case 5:
+            CPU = TigerKnight;
+            imgCPU.src = './character/tiger_knight.png';
+        CPUName.innerHTML = 'Tiger Knight';
+        break;    
+    }
+    return imgCPU.src;
+    //console.log(CPU);
+}
+
+
 // Start Battle - Assign CPU character
 
 const startBattle = document.getElementById('startBattle');
@@ -242,8 +265,43 @@ startBattle.onclick = function() {start()};
 
 function start() {
     casualAssignCPU();
-}
 
+// Img and name assign player 1
+    const p1Name = document.getElementById('p1Name');
+    const imgp1 = document.createElement('img');
+    imgp1.className = 'charIcon';
+    document.getElementById('player1').appendChild(imgp1);
+    switch (Player1){
+        case SwordKnight:
+            imgp1.src = './character/sword_knight.png';
+            p1Name.innerHTML = 'Sword Knight';
+        break;
+        case Archer:
+            imgp1.src = './character/archer.png';
+            p1Name.innerHTML = 'Medieval Archer';
+        break;
+        case AxeKnight:
+            imgp1.src = './character/axe_knight.png';
+            p1Name.innerHTML = 'Axe Knight';
+        break;
+        case HorseKnight:
+            imgp1.src = './character/knight.png';
+            p1Name.innerHTML = 'Horse Knight';
+        break;
+        case PikeKnight:
+            imgp1.src = './character/pike_knight.png';
+            p1Name.innerHTML = 'Pike Knight';
+        break;
+        case TigerKnight:
+            imgp1.src = './character/tiger_knight.png';
+            p1Name.innerHTML = 'Tiger Knight';
+        break;
+        
+    }
+    return imgp1.src;
+    }
+
+    
 
 
 
@@ -256,30 +314,6 @@ function startRound() {
     round()
 }
 
-/*
-
-function start() {
-    function retrieveImg() {
-        let img = document.createElement('img');
-        Player1Img.className = 'charIcon';
-        let Player1Profile = document.getElementById('Player1');
-        switch(Player1){
-            case sword:
-                img.src = "./character/sword_knight.png";
-            break;
-            case archer:
-                this.img.src = "./character/archer.png";  
-            break;
-            case AxeKnight:
-                this.img.src = "./character/axe_knight.png";
-            break;
-        }
-    }
-    img.src = retrieveImg();
-    Player1Profile.appendChild('img');
-}
-
-*/
 
 nextRound.onclick = function() {startRound()};
 
