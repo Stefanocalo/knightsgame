@@ -173,26 +173,86 @@ const pike = document.querySelector('#pikeKnight');
 const tiger = document.querySelector('#tigerKnight');
 
 
-function test(character) {
+function characterSelection(character) {
     character.classList.toggle('active');
-    this.Player1 = character;
-    return this.Player1;
+    switch (character){
+        case sword:
+            Player1 = SwordKnight;
+            archer.classList.remove('active');
+            axe.classList.remove('active');
+            horse.classList.remove('active');
+            pike.classList.remove('active');
+            tiger.classList.remove('active');
+        break;
+        case archer:
+            Player1 = Archer;
+            axe.classList.remove('active');
+            horse.classList.remove('active');
+            pike.classList.remove('active');
+            tiger.classList.remove('active');
+            sword.classList.remove('active');
+        break;
+        case axe:
+            Player1 = AxeKnight;
+            archer.classList.remove('active');
+            horse.classList.remove('active');
+            pike.classList.remove('active');
+            tiger.classList.remove('active');
+            sword.classList.remove('active');
+        break;
+        case horse:
+            Player1 = HorseKnight;
+            archer.classList.remove('active');
+            axe.classList.remove('active');
+            pike.classList.remove('active');
+            tiger.classList.remove('active');
+            sword.classList.remove('active');
+        break;
+        case pike:
+            Player1 = PikeKnight;
+            archer.classList.remove('active');
+            axe.classList.remove('active');
+            horse.classList.remove('active');
+            tiger.classList.remove('active');
+            sword.classList.remove('active');
+        break;
+        case tiger:
+            Player1 = PikeKnight;
+            archer.classList.remove('active');
+            axe.classList.remove('active');
+            horse.classList.remove('active');
+            pike.classList.remove('active');
+            sword.classList.remove('active');
+        break;
+    }
 }
 
-sword.onclick = function() {test(sword)};
-archer.onclick = function() {test(archer)};
-axe.onclick = function() {test(axe)};
-horse.onclick = function() {test(horse)};
-pike.onclick = function() {test(pike)};
-tiger.onclick = function() {test(tiger)};
+sword.onclick = function() {characterSelection(sword)};
+archer.onclick = function() {characterSelection(archer)};
+axe.onclick = function() {characterSelection(axe)};
+horse.onclick = function() {characterSelection(horse)};
+pike.onclick = function() {characterSelection(pike)};
+tiger.onclick = function() {characterSelection(tiger)};
 
-// Start Battle - Assign character
+// Start Battle - Assign CPU character
 
 const startBattle = document.getElementById('startBattle');
 
+startBattle.onclick = function() {start()};
+
 function start() {
-    Player1 = sword;
     casualAssignCPU();
+}
+
+
+
+
+
+
+
+const nextRound = document.getElementById('nextRound');
+
+function startRound() {
     round()
 }
 
@@ -221,7 +281,7 @@ function start() {
 
 */
 
-startBattle.onclick = function() {start()};
+nextRound.onclick = function() {startRound()};
 
 
 
