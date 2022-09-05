@@ -10,11 +10,13 @@ lossPhrases = ['AAAHHHH!!', 'AAARRGGHH', 'NOOOOOO']
 // Parent characters class
 
 class Knight {
-    constructor(role, HP, armor, maxAttack, ){
+    constructor(role, HP, maxHP, armor, maxArmor, maxAttack, ){
         this._role = role;
         this._name = names[Math.floor(Math.random() * names.length)];
         this._HP = HP;
+        this._maxHP = maxHP;
         this._armor = armor;
+        this._maxArmor = maxArmor;
         this._maxAttack = maxAttack;
     }
 
@@ -30,8 +32,16 @@ class Knight {
         return this._HP;
     }
 
+    get maxHP() {
+        return this._maxHP;
+    }
+
     get armor() {
         return this._armor;
+    }
+
+    get maxArmor() {
+        return this._maxArmor;
     }
 
     get maxAttack() {
@@ -44,6 +54,7 @@ class Knight {
     }
 
     updateArmor(damageIncome) {
+
         if (damageIncome < this._armor) {
             this._armor -= damageIncome;
             console.log(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
@@ -103,38 +114,20 @@ const battle = function () {
 
 */
 
-// Round function 
-
-const round = function() {
-    let p1Attack = Math.floor(Math.random() * Player1._maxAttack);
-    let CPUAttack = Math.floor(Math.random() * CPU._maxAttack);
-
-    CPU.updateArmor(p1Attack);
-    if (CPU._HP != 0) {
-        Player1.updateArmor(CPUAttack);
-    } if (Player1._HP === 0) {
-        console.log(lossPhrases[Math.floor(Math.random() * lossPhrases.length)]);
-        console.log('You have lost');
-    } else if (CPU._HP === 0) {
-        console.log('You won!')
-        console.log(winPhrases[Math.floor(Math.random() * winPhrases.length)]);
-    }
-}
-
 
 // charachters 
 
-const SwordKnight = new Knight('Sword Knight',100, 200, 124);
+const SwordKnight = new Knight('Sword Knight',100, 100, 200, 200, 124);
 
-const Archer = new Knight('Medieval Archer',100, 125, 165);
+const Archer = new Knight('Medieval Archer',100, 100, 125, 125, 165);
 
-const AxeKnight = new Knight('Axe Knight',100, 250, 115);
+const AxeKnight = new Knight('Axe Knight',100, 100, 250, 250, 115);
 
-const HorseKnight = new Knight('Horse Knight',100, 180, 170);
+const HorseKnight = new Knight('Horse Knight',100, 100, 180, 180, 170);
 
-const PikeKnight = new Knight('Pike Knight',100, 180, 180)
+const PikeKnight = new Knight('Pike Knight',100, 100, 180, 180, 180)
 
-const TigerKnight = new Knight('Tiger Knight',100, 130, 150)
+const TigerKnight = new Knight('Tiger Knight',100, 100, 130, 130, 150)
 
 
 // Assing Player1 character
@@ -208,52 +201,54 @@ horse.onclick = function() {characterSelection(horse)};
 pike.onclick = function() {characterSelection(pike)};
 tiger.onclick = function() {characterSelection(tiger)};
 
-
 // Casually assign opponent
 
 
 const casualAssignCPU = function() {
 
-    const CPUName = document.getElementById('CPUName');
-    const imgCPU = document.createElement('img');
-    imgCPU.className = 'charIcon';
-    document.getElementById('CPU').appendChild(imgCPU);
-
-    let cas = Math.floor(Math.random() * 6);
-    switch(cas){
-        case 0:
-            CPU = SwordKnight;
-            imgCPU.src = './character/sword_knight.png';
-            CPUName.innerHTML = 'Sword Knight';
-        break;
-        case 1:
-            CPU = Archer;
-            imgCPU.src = './character/archer.png';
-            CPUName.innerHTML = 'Medieval Archer';
-        break;
-        case 2:
-            CPU = AxeKnight;
-            imgCPU.src = './character/axe_knight.png';
-            CPUName.innerHTML = 'Axe Knight';
-        break;
-        case 3:
-            CPU = HorseKnight;
-            imgCPU.src = './character/knight.png';
-            CPUName.innerHTML = 'Horse Knight';
-        break;
-        case 4:
-            CPU = PikeKnight;
-            imgCPU.src = './character/pike_knight.png';
-            CPUName.innerHTML = 'Pike Knight';
-        break;
-        case 5:
-            CPU = TigerKnight;
-            imgCPU.src = './character/tiger_knight.png';
-        CPUName.innerHTML = 'Tiger Knight';
-        break;    
+    if (Player1 !== undefined) {
+        const CPUName = document.getElementById('CPUName');
+        const imgCPU = document.createElement('img');
+        imgCPU.className = 'charIcon';
+        document.getElementById('CPU').appendChild(imgCPU);
+    
+        let cas = Math.floor(Math.random() * 6);
+        switch(cas){
+            case 0:
+                CPU = SwordKnight;
+                imgCPU.src = './character/sword_knight.png';
+                CPUName.innerHTML = 'Sword Knight';
+            break;
+            case 1:
+                CPU = Archer;
+                imgCPU.src = './character/archer.png';
+                CPUName.innerHTML = 'Medieval Archer';
+            break;
+            case 2:
+                CPU = AxeKnight;
+                imgCPU.src = './character/axe_knight.png';
+                CPUName.innerHTML = 'Axe Knight';
+            break;
+            case 3:
+                CPU = HorseKnight;
+                imgCPU.src = './character/knight.png';
+                CPUName.innerHTML = 'Horse Knight';
+            break;
+            case 4:
+                CPU = PikeKnight;
+                imgCPU.src = './character/pike_knight.png';
+                CPUName.innerHTML = 'Pike Knight';
+            break;
+            case 5:
+                CPU = TigerKnight;
+                imgCPU.src = './character/tiger_knight.png';
+            CPUName.innerHTML = 'Tiger Knight';
+            break;    
+        }
+        return imgCPU.src;
+        //console.log(CPU);
     }
-    return imgCPU.src;
-    //console.log(CPU);
+    
 }
 
 
@@ -265,9 +260,18 @@ startBattle.onclick = function() {start()};
 
 function start() {
     casualAssignCPU();
+    if (Player1 === undefined) {
+        window.alert('Please select a warrior for the battle!');
+    } else if ( Player1 === CPU) {
+       window.alert('ERROR. Player and CPU cannot have the same warrior assigned. Please reload the page and try again.');
+       document.getElementById('startBattle').disabled = true;
+    } else {
+        document.getElementById('firstSection').classList.toggle('active');
+        document.getElementById('hide').classList.toggle('active');
 
-// Img and name assign player 1
-    const p1Name = document.getElementById('p1Name');
+        // Img and name assign player 1
+
+        const p1Name = document.getElementById('p1Name');
     const imgp1 = document.createElement('img');
     imgp1.className = 'charIcon';
     document.getElementById('player1').appendChild(imgp1);
@@ -298,20 +302,221 @@ function start() {
         break;
         
     }
-    return imgp1.src;
-    }
+    return imgp1.src;    
+    };
 
-    
-
-
-
+}
 
 
 
 const nextRound = document.getElementById('nextRound');
 
+// Round function 
+
+const round = function() {
+    let p1Attack = Math.floor(Math.random() * Player1._maxAttack);
+    let CPUAttack = Math.floor(Math.random() * CPU._maxAttack);
+
+    CPU.updateArmor(p1Attack);
+    if (CPU._HP != 0) {
+        Player1.updateArmor(CPUAttack);
+    } if (Player1._HP === 0) {
+        console.log(lossPhrases[Math.floor(Math.random() * lossPhrases.length)]);
+        console.log('You have lost');
+        nextRound.disabled = true;
+    } else if (CPU._HP === 0) {
+        console.log('You won!')
+        console.log(winPhrases[Math.floor(Math.random() * winPhrases.length)]);
+        nextRound.disabled = true;
+
+    }
+   
+}
+
+// Update health
+
+function updateHealthIndicators(var1, var2) {
+    const currentHP = var1._HP;
+    const percentageHP = currentHP / (var1._maxHP / 100);
+    
+    switch (true) {
+        case (percentageHP === 0): 
+            var2.style.width = '0%';
+            var2.style.backgroundColor = 'rgb(194, 36, 36)';
+        break;
+        case (percentageHP > 0 && percentageHP < 5): 
+            var2.style.width = '5%';
+            var2.style.backgroundColor = 'rgb(194, 36, 36)';
+        break;
+        case (percentageHP >= 5 && percentageHP < 10):
+            var2.style.width = '10%';
+            var2.style.backgroundColor = 'rgb(194, 36, 36)';
+        break;
+        case (percentageHP >= 10 && percentageHP < 15):
+            var2.style.width = '15%';
+            var2.style.backgroundColor = 'rgb(194, 36, 36)';
+        break;
+        case (percentageHP >= 15 && percentageHP < 20):
+            var2.style.width = '20%';
+            var2.style.backgroundColor = 'rgb(194, 36, 36)';
+        break;
+        case (percentageHP >= 20 && percentageHP < 25):
+            var2.style.width = '25%';
+            var2.style.backgroundColor = 'rgb(194, 36, 36)';
+        break;
+        case (percentageHP >= 25 && percentageHP < 30):
+            var2.style.width = '30%';
+            var2.style.backgroundColor = 'rgb(194, 36, 36)';
+        break;
+        case (percentageHP >= 30 && percentageHP < 35):
+            var2.style.width = '35%';
+            var2.style.backgroundColor = 'rgb(238, 232, 78)';
+        break;
+        case (percentageHP >= 35 && percentageHP < 40):
+            var2.style.width = '40%';
+            var2.style.backgroundColor = 'rgb(238, 232, 78)';
+        break;
+        case (percentageHP >= 40 && percentageHP < 45):
+            var2.style.width = '45%';
+            var2.style.backgroundColor = 'rgb(238, 232, 78)';
+        break;
+        case (percentageHP >= 45 && percentageHP < 50):
+            var2.style.width = '50%';
+            var2.style.backgroundColor = 'rgb(238, 232, 78)';
+        break;
+        case (percentageHP >= 50 && percentageHP < 55):
+            var2.style.width = '55%';
+            var2.style.backgroundColor = 'rgb(238, 232, 78)';
+        break;
+        case (percentageHP >= 55 && percentageHP < 60):
+            var2.style.width = '60%';
+        break;
+        case (percentageHP >= 60 && percentageHP < 65):
+            var2.style.width = '65%';
+        break;
+        case (percentageHP >= 65 && percentageHP < 70):
+            var2.style.width = '70%';
+        break;
+        case (percentageHP >= 70 && percentageHP < 75):
+            var2.style.width = '75%';
+        break;
+        case (percentageHP >= 75 && percentageHP < 80):
+            var2.style.width = '80%';
+        break;
+        case (percentageHP >= 80 && percentageHP < 85):
+            var2.style.width = '85%';
+        break;
+        case (percentageHP >= 85 && percentageHP < 90):
+            var2.style.width = '90%';
+        break;
+        case (percentageHP >= 90 && percentageHP < 95):
+            var2.style.width = '95%';
+        break;
+        case (percentageHP >= 95 && percentageHP < 100):
+            var2.style.width = '100%';
+        break;
+    }
+}
+
+// Update Armor Indicators
+
+function updateArmorIndicators(var1, var2) {
+    const currentArmor = var1._armor;
+    const percentageArmor = currentArmor / (var1._maxArmor / 100);
+    
+    switch (true) {
+        case (percentageArmor === 0): 
+            var2.style.width = '0%';
+            var2.style.backgroundColor = "rgb(81, 3, 3)";
+        break;
+        case (percentageArmor > 0 && percentageArmor < 5): 
+            var2.style.width = '5%';
+            var2.style.backgroundColor = "rgb(81, 3, 3)";
+        break;
+        case (percentageArmor >= 5 && percentageArmor < 10):
+            var2.style.width = '10%';
+            var2.style.backgroundColor = "rgb(81, 3, 3)";
+        break;
+        case (percentageArmor >= 10 && percentageArmor < 15):
+            var2.style.width = '15%';
+            var2.style.backgroundColor = "rgb(81, 3, 3)";
+        break;
+        case (percentageArmor >= 15 && percentageArmor < 20):
+            var2.style.width = '20%';
+            var2.style.backgroundColor = "rgb(81, 3, 3)";
+        break;
+        case (percentageArmor >= 20 && percentageArmor < 25):
+            var2.style.width = '25%';
+            var2.style.backgroundColor = "rgb(81, 3, 3)";
+        break;
+        case (percentageArmor >= 25 && percentageArmor < 30):
+            var2.style.width = '30%';
+            var2.style.backgroundColor = "rgb(81, 3, 3)";
+        break;
+        case (percentageArmor >= 30 && percentageArmor < 35):
+            var2.style.width = '35%';
+            var2.style.backgroundColor = "rgb(81, 3, 3)";
+        break;
+        case (percentageArmor >= 35 && percentageArmor < 40):
+            var2.style.width = '40%';
+            var2.style.backgroundColor = "rgb(136, 8, 8)";
+        break;
+        case (percentageArmor >= 40 && percentageArmor < 45):
+            var2.style.width = '45%';
+            var2.style.backgroundColor = "rgb(136, 8, 8)";
+        break;
+        case (percentageArmor >= 45 && percentageArmor < 50):
+            var2.style.width = '50%';
+            var2.style.backgroundColor = "rgb(136, 8, 8)";
+        break;
+        case (percentageArmor >= 50 && percentageArmor < 55):
+            var2.style.width = '55%';
+            var2.style.backgroundColor = "rgb(136, 8, 8)";
+        break;
+        case (percentageArmor >= 55 && percentageArmor < 60):
+            var2.style.width = '60%';
+        break;
+        case (percentageArmor >= 60 && percentageArmor < 65):
+            var2.style.width = '65%';
+        break;
+        case (percentageArmor >= 65 && percentageArmor < 70):
+            var2.style.width = '70%';
+        break;
+        case (percentageArmor >= 70 && percentageArmor < 75):
+            var2.style.width = '75%';
+        break;
+        case (percentageArmor >= 75 && percentageArmor < 80):
+            var2.style.width = '80%';
+        break;
+        case (percentageArmor >= 80 && percentageArmor < 85):
+            var2.style.width = '85%';
+        break;
+        case (percentageArmor >= 85 && percentageArmor < 90):
+            var2.style.width = '90%';
+        break;
+        case (percentageArmor >= 90 && percentageArmor < 95):
+            var2.style.width = '95%';
+        break;
+        case (percentageArmor >= 95 && percentageArmor < 100):
+            var2.style.width = '100%';
+        break;
+    }
+}
+
+const p1Health = document.getElementById('p1HealthContainer');
+const p1Armor =document.getElementById('p1ArmorContainer');
+const CPUHealth = document.getElementById('CPUHealthContainer');
+const CPUArmor = document.getElementById('CPUArmorContainer');
+
+
+
+    
 function startRound() {
     round()
+    updateHealthIndicators(Player1, p1Health);
+    updateHealthIndicators(CPU, CPUHealth)
+    updateArmorIndicators(Player1, p1Armor);
+    updateArmorIndicators(CPU, CPUArmor);
 }
 
 
