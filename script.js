@@ -157,9 +157,22 @@ const horse = document.querySelector('#knight');
 const pike = document.querySelector('#pikeKnight');
 const tiger = document.querySelector('#tigerKnight');
 
+// Players stats 
 
-function characterSelection(character) {
+const swordStats = document.getElementById('swordKnightStats');
+const archerStats = document.getElementById('archerStats');
+const axeStats = document.getElementById('axeStats');
+const horseStats = document.getElementById('horseStats');
+const pikeStats = document.getElementById('pikeStats');
+const tigerStats = document.getElementById('tigerStats');
+
+
+
+
+function characterSelection(character,stats) {
     character.classList.toggle('active');
+    stats.classList.toggle('active');
+
     switch (character){
         case sword:
             Player1 = SwordKnight;
@@ -168,6 +181,13 @@ function characterSelection(character) {
             horse.classList.remove('active');
             pike.classList.remove('active');
             tiger.classList.remove('active');
+
+            archerStats.classList.remove('active'),
+            axeStats.classList.remove('active');
+            tigerStats.classList.remove('active');
+            horseStats.classList.remove('active');
+            pikeStats.classList.remove('active');
+            tigerStats.classList.remove('active');
         break;
         case archer:
             Player1 = Archer;
@@ -176,6 +196,13 @@ function characterSelection(character) {
             pike.classList.remove('active');
             tiger.classList.remove('active');
             sword.classList.remove('active');
+
+            axeStats.classList.remove('active');
+            tigerStats.classList.remove('active');
+            horseStats.classList.remove('active');
+            pikeStats.classList.remove('active');
+            tigerStats.classList.remove('active');
+            swordStats.classList.remove('active');
         break;
         case axe:
             Player1 = AxeKnight;
@@ -184,6 +211,13 @@ function characterSelection(character) {
             pike.classList.remove('active');
             tiger.classList.remove('active');
             sword.classList.remove('active');
+
+            archerStats.classList.remove('active'),
+            tigerStats.classList.remove('active');
+            horseStats.classList.remove('active');
+            pikeStats.classList.remove('active');
+            tigerStats.classList.remove('active');
+            swordStats.classList.remove('active');
         break;
         case horse:
             Player1 = HorseKnight;
@@ -192,6 +226,13 @@ function characterSelection(character) {
             pike.classList.remove('active');
             tiger.classList.remove('active');
             sword.classList.remove('active');
+
+            archerStats.classList.remove('active'),
+            axeStats.classList.remove('active');
+            tigerStats.classList.remove('active');
+            pikeStats.classList.remove('active');
+            tigerStats.classList.remove('active');
+            swordStats.classList.remove('active');
         break;
         case pike:
             Player1 = PikeKnight;
@@ -200,6 +241,13 @@ function characterSelection(character) {
             horse.classList.remove('active');
             tiger.classList.remove('active');
             sword.classList.remove('active');
+
+            archerStats.classList.remove('active'),
+            axeStats.classList.remove('active');
+            tigerStats.classList.remove('active');
+            horseStats.classList.remove('active');
+            tigerStats.classList.remove('active');
+            swordStats.classList.remove('active');
         break;
         case tiger:
             Player1 = PikeKnight;
@@ -208,16 +256,23 @@ function characterSelection(character) {
             horse.classList.remove('active');
             pike.classList.remove('active');
             sword.classList.remove('active');
+
+            archerStats.classList.remove('active'),
+            axeStats.classList.remove('active');
+            horseStats.classList.remove('active');
+            pikeStats.classList.remove('active');
+            swordStats.classList.remove('active');       
         break;
     }
+    
 }
 
-sword.onclick = function() {characterSelection(sword)};
-archer.onclick = function() {characterSelection(archer)};
-axe.onclick = function() {characterSelection(axe)};
-horse.onclick = function() {characterSelection(horse)};
-pike.onclick = function() {characterSelection(pike)};
-tiger.onclick = function() {characterSelection(tiger)};
+sword.onclick = function() {characterSelection(sword, swordStats)};
+archer.onclick = function() {characterSelection(archer, archerStats)};
+axe.onclick = function() {characterSelection(axe, axeStats)};
+horse.onclick = function() {characterSelection(horse, horseStats)};
+pike.onclick = function() {characterSelection(pike, pikeStats)};
+tiger.onclick = function() {characterSelection(tiger, tigerStats)};
 
 // Casually assign opponent
 
@@ -414,6 +469,7 @@ function updateHealthIndicators(var1, var2) {
     switch (true) {
         case (percentageHP === 0): 
             var2.style.width = '0%';
+            var2.style.opacity = '0';
             var2.style.backgroundColor = 'rgb(194, 36, 36)';
         break;
         case (percentageHP > 0 && percentageHP < 5): 
@@ -499,6 +555,7 @@ function updateArmorIndicators(var1, var2) {
     switch (true) {
         case (percentageArmor === 0): 
             var2.style.width = '0%';
+            var2.style.opacity = '0';
             var2.style.backgroundColor = "rgb(81, 3, 3)";
         break;
         case (percentageArmor > 0 && percentageArmor < 5): 
