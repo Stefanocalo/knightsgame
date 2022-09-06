@@ -53,33 +53,39 @@ header {
 /* Player Selection */
 
 #swordKnight.active {
-    padding: 3rem 2rem;
-    background-color: green;
+    height: 16rem;
+    width: 12rem;
+    box-shadow: 0 10px 10px rgb(130, 131, 130);
 }
 
 #axeKnight.active {
-    padding: 3rem 2rem;
-    background-color: green;
+    height: 16rem;
+    width: 12rem;
+    box-shadow: 0 10px 10px rgb(130, 131, 130);
 }
 
 #knight.active {
-    padding: 3rem 2rem;
-    background-color: green;
+    height: 16rem;
+    width: 12rem;
+    box-shadow: 0 10px 10px rgb(130, 131, 130);
 }
 
 #pikeKnight.active {
-    padding: 3rem 2rem;
-    background-color: green;
+    height: 16rem;
+    width: 12rem;
+    box-shadow: 0 10px 10px rgb(130, 131, 130);
 }
 
 #tigerKnight.active {
-    padding: 3rem 2rem;
-    background-color: green;
+    height: 16rem;
+    width: 12rem;
+    box-shadow: 0 10px 10px rgb(130, 131, 130);
 }
 
 #archer.active {
-    padding: 3rem 2rem;
-    background-color: green;
+    height: 16rem;
+    width: 12rem;
+    box-shadow: 0 10px 10px rgb(130, 131, 130);
 }
 
 /* Battle Container */

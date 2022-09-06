@@ -304,6 +304,7 @@ function start() {
         document.getElementById('hide').classList.toggle('active');
         const battleAudio = new Audio("./audio/battle.mp3");
         playsound(battleAudio);
+        playerName();
 
         // Img and name assign player 1
 
@@ -581,6 +582,14 @@ document.getElementById('loseGame').onclick = function() {refreshPage()}
 
 // Audio 
 
+// Name prompt 
+
+function playerName() {
+    let person = prompt(`Hi! Please enter your name`, 'Mario Rossi');
+    if (person !== null) {
+        document.getElementById('P1NAME').innerHTML = person;
+    }
+}
 
 
 
