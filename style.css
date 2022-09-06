@@ -7,6 +7,7 @@ body {
     scroll-behavior: smooth;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
+    background-color: rgb(240, 255, 242);
 }
 
 header {
@@ -64,6 +65,11 @@ header {
     box-shadow: 0 10px 10px rgb(130, 131, 130);
 }
 
+.charName,
+.name {
+    text-align: center;
+    font-weight: 600;
+}
 
 /* Player Selection */
 

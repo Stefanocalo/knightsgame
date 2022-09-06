@@ -275,6 +275,25 @@ const battleAudio = new Audio("./audio/battle.mp3");
 const winAudio = new Audio('./audio/win_popup.mp3');
 const lossAudio = new Audio("./audio/loss_popup.mp3")
 const die = new Audio('./audio/die.mp3');
+const sword1 = new Audio("./audio/sword1.mp3");
+const sword2 = new Audio("./audio/sword2.mp3");
+const sword3 = new Audio("./audio/sword3.mp3");
+const ready = new Audio("./audio/ready_battle.mp3");
+
+function rndSound() {
+    let n = Math.floor(Math.random() * 3);
+    switch (n) {
+        case 0:
+            sword1.play();
+        break;
+        case 1:
+            sword2.play();
+        break;
+        case 2: 
+        sword3.play();
+    }
+}
+
         
 function playsound(audio) {
     audio.play();
@@ -305,6 +324,7 @@ function start() {
         document.getElementById('hide').classList.toggle('active');
         const battleAudio = new Audio("./audio/battle.mp3");
         playsound(battleAudio);
+        playsound(ready);
         playerName();
 
         // Img and name assign player 1
@@ -570,7 +590,11 @@ function startRound() {
 }
 
 
-nextRound.onclick = function() {startRound()};
+
+nextRound.addEventListener('click', () => {
+    startRound();
+    rndSound();
+})
 
 // Start new game
 
@@ -581,7 +605,6 @@ function refreshPage(){
 document.getElementById('winGame').onclick = function() {refreshPage()}
 document.getElementById('loseGame').onclick = function() {refreshPage()}
 
-// Audio 
 
 // Name prompt 
 
