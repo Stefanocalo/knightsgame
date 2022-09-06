@@ -133,17 +133,17 @@ const battle = function () {
 
 // charachters 
 
-const SwordKnight = new Knight('Sword Knight',100, 100, 200, 200, 124);
+const SwordKnight = new Knight('Sword Knight',100, 100, 240, 240, 110);
 
-const Archer = new Knight('Medieval Archer',100, 100, 125, 125, 165);
+const Archer = new Knight('Medieval Archer',100, 100, 220, 220, 75);
 
-const AxeKnight = new Knight('Axe Knight',100, 100, 250, 250, 115);
+const AxeKnight = new Knight('Axe Knight',100, 100, 270, 270, 95);
 
-const HorseKnight = new Knight('Horse Knight',100, 100, 180, 180, 170);
+const HorseKnight = new Knight('Horse Knight',100, 100, 300, 300, 120);
 
-const PikeKnight = new Knight('Pike Knight',100, 100, 180, 180, 180)
+const PikeKnight = new Knight('Pike Knight',100, 100, 280, 280, 110)
 
-const TigerKnight = new Knight('Tiger Knight',100, 100, 130, 130, 150)
+const TigerKnight = new Knight('Tiger Knight',100, 100, 260, 260, 105)
 
 
 // Assing Player1 character
@@ -267,12 +267,30 @@ const casualAssignCPU = function() {
     
 }
 
+// audio 
+
+
+const selectionAudio = new Audio("./audio/character_selection.mp3")
+const battleAudio = new Audio("./audio/battle.mp3");
+const winAudio = new Audio('./audio/win_popup.mp3');
+const lossAudio = new Audio("./audio/loss_popup.mp3")
+const die = new Audio('./audio/die.mp3');
+        
+function playsound(audio) {
+    audio.play();
+}
+
+function pausesound(audio) {
+    audio.pause();
+}
+
 
 // Start Battle - Assign CPU character
 
 const startBattle = document.getElementById('startBattle');
 
 startBattle.onclick = function() {start()};
+
 
 function start() {
     casualAssignCPU();
@@ -284,6 +302,8 @@ function start() {
     } else {
         document.getElementById('firstSection').classList.toggle('active');
         document.getElementById('hide').classList.toggle('active');
+        const battleAudio = new Audio("./audio/battle.mp3");
+        playsound(battleAudio);
 
         // Img and name assign player 1
 
@@ -345,7 +365,8 @@ const round = function() {
         document.querySelector('.popUp').classList.toggle('active');
         document.getElementById('losspopUp').style.display = 'block';
         document.getElementById('hide').style.opacity = '0.2';
-        
+        playsound(lossAudio);  
+        playsound(die);      
     } else if (CPU._HP === 0) {
         print('You won!');
         print(winPhrases[Math.floor(Math.random() * winPhrases.length)]);
@@ -355,6 +376,7 @@ const round = function() {
         document.querySelector('.popUp').classList.toggle('active');
         document.getElementById('WinpopUp').style.display = 'block';
         document.getElementById('hide').style.opacity = '0.2';
+        playsound(winAudio);
     }
    
 }
@@ -556,6 +578,8 @@ function refreshPage(){
 
 document.getElementById('winGame').onclick = function() {refreshPage()}
 document.getElementById('loseGame').onclick = function() {refreshPage()}
+
+// Audio 
 
 
 
