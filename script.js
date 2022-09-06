@@ -68,7 +68,8 @@ class Knight {
             this._HP -= diff;
             if (this._HP > 0) {
                 print(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
-                print(`Oh no! The armor is gone! ${this._name} the ${this._role} get ${diff} direct damage. Remainig health: ${this._HP}`);
+                print(`Oh no! The ${this._role}'s armor is gone!`);
+                print(`${this._role} get ${diff} direct damage. Remainig health: ${this._HP}`)
                 console.log(JSON.stringify(`${this._role} it's under attack: it gets ${damageIncome} points of damage`));
                 console.log(`Oh no! The armor is gone! ${this._name} the ${this._role} get ${diff} direct damage. Remainig health: ${this._HP}`);
             this._armor = 0;
@@ -82,7 +83,8 @@ class Knight {
             }
         } else {
             print(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
-            print(`Oh no! The armor is gone! ${this._name} the ${this._role} has no protection! Remaining health: ${this._HP}`);
+            print(`Oh no! The ${this._role}'s armor is gone!`);
+            print(`${this._role} has no protection! Remaining health: ${this._HP}`);
             console.log(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
             console.log(`Oh no! The armor is gone! ${this._name} the ${this._role} has no protection! Remaining health: ${this._HP}`);
             this._armor = 0;
@@ -135,7 +137,7 @@ const battle = function () {
 
 const SwordKnight = new Knight('Sword Knight',100, 100, 240, 240, 110);
 
-const Archer = new Knight('Medieval Archer',100, 100, 220, 220, 75);
+const Archer = new Knight('Archer',100, 100, 220, 220, 75);
 
 const AxeKnight = new Knight('Axe Knight',100, 100, 270, 270, 95);
 

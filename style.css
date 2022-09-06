@@ -18,6 +18,10 @@ header {
     align-items: center;
 }
 
+header p {
+    font-weight: 600;
+}
+
 /* Character container */
 
 .characterContainer {
@@ -362,8 +366,15 @@ button:hover {
     }
 }
 
+#mobile {
+    display: none;
+}
 
 @media(max-width: 768px) {
+
+    body {
+        padding-bottom: 7rem;
+    }
 
     .characterContainer {
         flex-wrap: wrap;
@@ -376,5 +387,37 @@ button:hover {
         flex-direction: column;
     }
 
+    button {
+        height: 4rem;
+        width: 15rem;
+    }
 
+    #startBattle {
+        margin-top: 5rem
+    }
+
+    #nextRound {
+        height: 2.5rem;
+        width: 10rem;
+    }
+
+    #battleLog p {
+        
+        font-size: 0.8rem;
+        justify-content: center;
+    }
+
+    .popUpContainer {
+        position: fixed;
+        width: 95%;
+        height: 33%;
+        left: 2.5%;
+        top: 33.5%;
+        z-index: 100;
+    }
+
+    #mobile {
+        display: block;
+    }
+    
 }
