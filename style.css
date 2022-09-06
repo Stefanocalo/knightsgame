@@ -163,10 +163,11 @@ header p {
 
 .stats {
     text-align: center;
-    font-weight: 400;
-    padding-top: 0.3rem;
+    font-weight: 600;
+    padding-top: 1rem;
     transition: 0.3s ease-in;
     overflow: hidden;
+    height: 1.5rem;
 }
 
 /* Player Selection */
@@ -264,7 +265,7 @@ header p {
     margin: 1rem 0;
     border-radius: 8px;
     border: 1px solid rgb(10, 10, 0);
-    transition: 0.5s 0.1s;
+    transition: 0.5s 0.5s;
     box-shadow: 0 5px 5px rgb(193, 193, 193);
     display: flex;
     justify-content: center;
@@ -277,7 +278,7 @@ header p {
     background-color: rgb(194, 36, 36);
     border-radius: 8px;
     border: 1px solid rgb(10, 10, 0);
-    transition: 0.5s 0.1s;
+    transition: 0.5s 0.5s;
     box-shadow: 0 5px 5px rgb(193, 193, 193);
     display: flex;
     justify-content: center;
@@ -291,7 +292,7 @@ header p {
     margin: 1rem 0;
     border-radius: 8px;
     border: 1px solid rgb(10, 10, 0);
-    transition: 0.5s 0.1s;
+    transition: 0.5s 0.2s;
     color:rgb(81, 3, 3);
     box-shadow: 0 5px 5px rgb(193, 193, 193);
     display: flex;
@@ -304,7 +305,7 @@ header p {
     height: 2rem;
     background-color: rgb(194, 36, 36);
     border-radius: 8px;    border: 1px solid rgb(10, 10, 0);
-    transition: 0.5s 0.1s;
+    transition: 0.5s 0.2s;
     box-shadow: 0 5px 5px rgb(193, 193, 193);
     display: flex;
     justify-content: center;

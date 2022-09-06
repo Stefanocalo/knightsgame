@@ -456,8 +456,7 @@ const round = function() {
         document.getElementById('WinpopUp').style.display = 'block';
         document.getElementById('hide').style.opacity = '0.2';
         playsound(winAudio);
-    }
-   
+    }   
 }
 
 // Update health
@@ -640,7 +639,7 @@ const CPUArmor = document.getElementById('CPUArmorContainer');
 
 
     
-function startRound() {
+function startRound() {    
     round()
     updateHealthIndicators(Player1, p1Health);
     updateHealthIndicators(CPU, CPUHealth)
