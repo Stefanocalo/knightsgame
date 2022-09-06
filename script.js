@@ -57,6 +57,8 @@ class Knight {
 
         if (damageIncome < this._armor) {
             this._armor -= damageIncome;
+            print(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
+            print(`${this._role} remaining armor: ${this._armor}`);
             console.log(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
             console.log(`${this._role} remaining armor: ${this._armor}`)
             return this._armor;
@@ -65,22 +67,36 @@ class Knight {
             let diff = damageIncome - this._armor;
             this._HP -= diff;
             if (this._HP > 0) {
-                console.log(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
-            console.log(`Oh no! The armor is gone! ${this._name} the ${this._role} get ${diff} direct damage. Remainig health: ${this._HP}`);
+                print(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
+                print(`Oh no! The armor is gone! ${this._name} the ${this._role} get ${diff} direct damage. Remainig health: ${this._HP}`);
+                console.log(JSON.stringify(`${this._role} it's under attack: it gets ${damageIncome} points of damage`));
+                console.log(`Oh no! The armor is gone! ${this._name} the ${this._role} get ${diff} direct damage. Remainig health: ${this._HP}`);
             this._armor = 0;
             return this._HP;
             } else {
+                print(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
                 console.log(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
                 this._HP = 0;
+                print(`${this._role} health: ${this._HP}`)
                 console.log(`${this._role} health: ${this._HP}`)
             }
         } else {
+            print(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
+            print(`Oh no! The armor is gone! ${this._name} the ${this._role} has no protection! Remaining health: ${this._HP}`);
             console.log(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
             console.log(`Oh no! The armor is gone! ${this._name} the ${this._role} has no protection! Remaining health: ${this._HP}`);
             this._armor = 0;
             return this._armor;
         }
     }
+}
+
+function print(str) {
+    const node = document.createElement('p');
+    const phr = JSON.stringify(str);
+    node.appendChild(document.createTextNode(phr))
+    document.getElementById('battleLog').appendChild(node);
+
 }
 
 // Declare players variable
@@ -321,14 +337,24 @@ const round = function() {
     if (CPU._HP != 0) {
         Player1.updateArmor(CPUAttack);
     } if (Player1._HP === 0) {
+        print(lossPhrases[Math.floor(Math.random() * lossPhrases.length)]);
+        print('You have lost');
         console.log(lossPhrases[Math.floor(Math.random() * lossPhrases.length)]);
         console.log('You have lost');
         nextRound.disabled = true;
+        document.querySelector('.popUp').classList.toggle('active');
+        document.getElementById('losspopUp').style.display = 'block';
+        document.getElementById('hide').style.opacity = '0.2';
+        
     } else if (CPU._HP === 0) {
-        console.log('You won!')
+        print('You won!');
+        print(winPhrases[Math.floor(Math.random() * winPhrases.length)]);
+        console.log('You won!');
         console.log(winPhrases[Math.floor(Math.random() * winPhrases.length)]);
         nextRound.disabled = true;
-
+        document.querySelector('.popUp').classList.toggle('active');
+        document.getElementById('WinpopUp').style.display = 'block';
+        document.getElementById('hide').style.opacity = '0.2';
     }
    
 }
@@ -521,6 +547,16 @@ function startRound() {
 
 
 nextRound.onclick = function() {startRound()};
+
+// Start new game
+
+function refreshPage(){
+    window.location.reload();
+} 
+
+document.getElementById('winGame').onclick = function() {refreshPage()}
+document.getElementById('loseGame').onclick = function() {refreshPage()}
+
 
 
 

@@ -100,13 +100,12 @@ header {
     z-index: 100;
     width: 100%;
     transition: 0.5s ease-in;
+    opacity: 1;
 }
 
 #hide.active {
     left: 0;
 }
-
-
 
 #battleContainer {
     width: 100%;
@@ -192,7 +191,7 @@ header {
 
 #battleLogContainer {
     width: 100%;
-    height: 20rem;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -201,9 +200,21 @@ header {
 
 #battleLog {
     width: 90%;
-    height: 20rem;
+    height: 18rem;
     background-color: rgb(185, 185, 185);
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 0.4;
+    overflow: scroll;
+    scroll-margin-inline-end: 0;
+}
+
+#battleLog p {
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 
@@ -218,7 +229,7 @@ header {
     align-items: center;
 }
 
-#startBattle {
+button {
     background-color: rgb(147, 226, 147);
     border-radius: 15px;
     display: flex;
@@ -231,8 +242,82 @@ header {
     border: 1px solid rgb(130, 131, 130)
 }
 
-#startBattle:hover {
+button:hover {
     background-color: rgb(74, 133, 74);
+}
+
+/* Pop ups */
+
+.popUpContainer {
+    position: fixed;
+    width: 35%;
+    height: 30%;
+    left: 32.5%;
+    top: 35%;
+    z-index: 100;
+}
+
+.popUp {
+    background-color: rgb(212, 212, 212);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 10px 10px rgb(241, 241, 241) ;
+    overflow: hidden;
+    animation: popups 0.3s linear;
+    opacity: 1;
+}
+
+
+
+
+#WinpopUp {
+    display: none;
+}
+
+#losspopUp {
+    display: none;
+}
+
+/* Pop up animation */
+
+@keyframes popups {
+    0% {
+        height: 0%;
+        width: 0%;
+        opacity: 0;
+    }
+    20% {
+        height: 30%;
+        width: 30%;
+    }
+    40% {
+        height: 50%;
+        width: 50%;
+    }
+    60% {
+        height: 80%;
+        width: 80%;
+        opacity: 0.6;
+    }
+    80% {
+        height: 110%;
+        width: 110%;
+        opacity: 1;
+    }
+    90% {
+        height: 90%;
+        width: 90%;
+    }
+    100% {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 
