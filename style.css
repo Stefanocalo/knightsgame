@@ -30,7 +30,22 @@ header {
     display: flex; 
     flex-direction: column;
     margin: 2rem 0;
+}
 
+.battleCharacter {
+    display: flex; 
+    flex-direction: column;
+    margin: 2rem 0;
+    width: 30%;
+}
+
+.battleimg {
+    display: flex;
+    justify-content: center;
+}
+
+.battleimg img {
+    box-shadow: 0 5px 5px rgb(193, 193, 193);
 }
 
 .charIcon {
@@ -135,9 +150,6 @@ header {
 
 .health {
     color: rgb(251, 253, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     
 }
 
@@ -148,6 +160,10 @@ header {
     margin: 1rem 0;
     border-radius: 8px;
     transition: 0.5s 0.1s;
+    box-shadow: 0 5px 5px rgb(193, 193, 193);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #p1ArmorContainer {
@@ -156,6 +172,10 @@ header {
     background-color: rgb(194, 36, 36);
     border-radius: 8px;
     transition: 0.5s 0.1s;
+    box-shadow: 0 5px 5px rgb(193, 193, 193);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #CPUHealthContainer {
@@ -165,7 +185,11 @@ header {
     margin: 1rem 0;
     border-radius: 8px;
     transition: 0.5s 0.1s;
-    color:rgb(81, 3, 3)
+    color:rgb(81, 3, 3);
+    box-shadow: 0 5px 5px rgb(193, 193, 193);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #CPUArmorContainer {
@@ -174,6 +198,10 @@ header {
     background-color: rgb(194, 36, 36);
     border-radius: 8px;
     transition: 0.5s 0.1s;
+    box-shadow: 0 5px 5px rgb(193, 193, 193);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Log container */
@@ -188,7 +216,7 @@ header {
     height: 2.2rem;
     cursor: pointer;
     transition: 0.3s;
-    border: 1px solid rgb(130, 131, 130)
+    border: 1px solid rgb(130, 131, 130);
 }
 
 #nextRound:hover {
@@ -201,7 +229,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 3rem 0;
+    margin: 1.5rem 0;
 }
 
 #battleLog {
@@ -213,14 +241,16 @@ header {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    line-height: 0.4;
     overflow: scroll;
     scroll-margin-inline-end: 0;
+    border: 1px solid rgb(10, 10, 0);
+    box-shadow: 0 5px 5px rgb(193, 193, 193);
 }
 
 #battleLog p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
+    line-height: 0.1;
 }
 
 
@@ -273,7 +303,7 @@ button:hover {
     flex-direction: column;
     border: 1px solid black;
     border-radius: 15px;
-    box-shadow: 10px 10px rgb(241, 241, 241) ;
+    box-shadow: 10px 10px 10px rgb(120, 120, 120) ;
     overflow: hidden;
     animation: popups 0.3s linear;
     opacity: 1;
