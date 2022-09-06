@@ -244,7 +244,7 @@ header p {
 
 #battleLog {
     width: 90%;
-    height: 18rem;
+    height: 15rem;
     background-color: rgb(185, 185, 185);
     border-radius: 10px;
     display: flex;
@@ -252,7 +252,6 @@ header p {
     flex-direction: column;
     text-align: center;
     overflow: scroll;
-    scroll-margin-inline-end: 0;
     border: 1px solid rgb(10, 10, 0);
     box-shadow: 0 5px 5px rgb(193, 193, 193);
 }
@@ -401,10 +400,15 @@ button:hover {
         width: 10rem;
     }
 
+    #battleLog {
+        height: 15rem;
+    }
+
     #battleLog p {
         
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         justify-content: center;
+
     }
 
     .popUpContainer {
@@ -418,6 +422,10 @@ button:hover {
 
     #mobile {
         display: block;
+    }
+
+    .battleCharacter {
+        width: 40%
     }
     
 }
