@@ -146,6 +146,8 @@ const PikeKnight = new Knight('Pike Knight',100, 100, 280, 280, 110)
 
 const TigerKnight = new Knight('Tiger Knight',100, 100, 260, 260, 105)
 
+const Thor = new Knight('Thor', 9999999, 9999999, 9999999, 9999999, 9999999)
+
 
 // Assing Player1 character
 
@@ -386,7 +388,7 @@ function start() {
 
         // Img and name assign player 1
 
-        const p1Name = document.getElementById('p1Name');
+    const p1Name = document.getElementById('p1Name');
     const imgp1 = document.createElement('img');
     imgp1.className = 'charIcon';
     document.getElementById('player1').appendChild(imgp1);
@@ -415,7 +417,9 @@ function start() {
             imgp1.src = './character/tiger_knight.png';
             p1Name.innerHTML = 'Tiger Knight';
         break;
-        
+        case Thor:
+            imgp1.src='./character/thor.png';
+            p1Name.innerHTML = 'GOD Of Thunder'
     }
     return imgp1.src;    
     };
@@ -669,7 +673,11 @@ document.getElementById('loseGame').onclick = function() {refreshPage()}
 
 function playerName() {
     let person = prompt(`Hi! Please enter your name`, 'Mario Rossi');
-    if (person !== null) {
+    if (person.toLowerCase() === 'thor') {
+        document.getElementById('P1NAME').innerHTML = person;
+        Player1 = Thor;
+    }
+    else if (person !== null) {
         document.getElementById('P1NAME').innerHTML = person;
     }
 }
