@@ -69,7 +69,7 @@ class Knight {
             if (this._HP > 0) {
                 print(`${this._role} it's under attack: it gets ${damageIncome} points of damage`);
                 print(`Oh no! The ${this._role}'s armor is gone!`);
-                print(`${this._role} get ${diff} direct damage. Remainig health: ${this._HP}`)
+                print(`${this._role} get ${diff} points of direct damage. Remainig health: ${this._HP}`)
                 console.log(JSON.stringify(`${this._role} it's under attack: it gets ${damageIncome} points of damage`));
                 console.log(`Oh no! The armor is gone! ${this._name} the ${this._role} get ${diff} direct damage. Remainig health: ${this._HP}`);
             this._armor = 0;
@@ -98,7 +98,6 @@ function print(str) {
     const phr = JSON.stringify(str);
     node.appendChild(document.createTextNode(phr))
     document.getElementById('battleLog').appendChild(node);
-
 }
 
 // Declare players variable
@@ -356,9 +355,10 @@ function playsound(audio) {
     audio.play();
 }
 
-function pausesound(audio) {
-    audio.pause();
-}
+
+
+
+
 
 
 // Start Battle - Assign CPU character
@@ -380,8 +380,8 @@ function start() {
         document.getElementById('firstSection').classList.toggle('active');
         document.getElementById('hide').classList.toggle('active');
         const battleAudio = new Audio("./audio/battle.mp3");
-        playsound(battleAudio);
         playsound(ready);
+        playsound(battleAudio);
         playerName();
 
         // Img and name assign player 1
@@ -445,7 +445,7 @@ const round = function() {
         document.getElementById('losspopUp').style.display = 'block';
         document.getElementById('hide').style.opacity = '0.2';
         playsound(lossAudio);  
-        playsound(die);      
+        playsound(die);
     } else if (CPU._HP === 0) {
         print('You won!');
         print(winPhrases[Math.floor(Math.random() * winPhrases.length)]);
@@ -652,6 +652,7 @@ function startRound() {
 nextRound.addEventListener('click', () => {
     startRound();
     rndSound();
+    document.getElementById('battleLog').scrollBy(0, 1000)
 })
 
 // Start new game
@@ -672,6 +673,8 @@ function playerName() {
         document.getElementById('P1NAME').innerHTML = person;
     }
 }
+
+
 
 
 
