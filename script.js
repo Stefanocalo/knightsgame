@@ -375,9 +375,9 @@ function start() {
     if (Player1 === undefined) {
         window.alert('Please select a warrior for the battle!');
     } else if ( Player1 === CPU) {
-       window.alert('ERROR. Player and CPU cannot have the same warrior assigned. Please try again.');
-       document.getElementById('startBattle').disabled = true;
-       refreshPage();
+        window.alert('ERROR. Player and CPU cannot have the same warrior assigned. Please try again.');
+        document.getElementById('startBattle').disabled = true;
+        refreshPage();
     } else {
         document.getElementById('firstSection').classList.toggle('active');
         document.getElementById('hide').classList.toggle('active');
